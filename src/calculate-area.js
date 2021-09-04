@@ -8,7 +8,8 @@ const CalculateArea = () => {
     const [thirdSideValue, setThirdSideValue] = useState(0);
     const [result, setResult] = useState("");
 
-    const calculate = () => {
+    const calculate = (event) => {
+        event.preventDefault();
         let message = "";      
         if (
           firstSideValue + secondSideValue > thirdSideValue &&
@@ -34,25 +35,27 @@ const CalculateArea = () => {
     return(
         <div>
             <h2>Calculate Area of a triangle</h2>
-            <div>
-                <div>
-                    <h3>Enter first side of a triangle</h3>
-                    <input required className="input-field" type="number" onChange={(event) => setFirstSideValue(parseInt(event.target.value))}  title="first" />
-                </div>
-                <div>
-                    <h3>Enter second side of a triangle</h3>
-                    <input required className="input-field" type="number" onChange={(event) => setSecondSideValue(parseInt(event.target.value))}  title="second"/>
-                </div>
-                <div>
-                    <h3>Enter third side of a triangle</h3>
-                    <input required className="input-field" type="number" onChange={(event) => setThirdSideValue(parseInt(event.target.value))}  title="third"/>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <button onClick={calculate}>Calculate</button>
-                </div>
-            </div>
+            <form onSubmit={calculate}>
+              <div>
+                  <div>
+                      <h3>Enter first side of a triangle</h3>
+                      <input required="required" className="input-field" type="number" onChange={(event) => setFirstSideValue(parseInt(event.target.value))}  title="first" />
+                  </div>
+                  <div>
+                      <h3>Enter second side of a triangle</h3>
+                      <input required="required" className="input-field" type="number" onChange={(event) => setSecondSideValue(parseInt(event.target.value))}  title="second"/>
+                  </div>
+                  <div>
+                      <h3>Enter third side of a triangle</h3>
+                      <input required="required" className="input-field" type="number" onChange={(event) => setThirdSideValue(parseInt(event.target.value))}  title="third"/>
+                  </div>
+              </div>
+              <div>
+                  <div>
+                      <button type="submit">Calculate</button>
+                  </div>
+              </div>
+            </form>
             <div>
                 <h2>{result}</h2>
             </div>
