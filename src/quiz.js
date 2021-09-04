@@ -18,7 +18,7 @@ function Quiz() {
     const checkAnswer = () => {
         let score = 0;
         answerList.forEach(ans => {
-            const data = QuizData.find(a => a.id == ans.id);
+            const data = QuizData.find(a => a.id === ans.id);
             if(data) {
                 score = ans.value == data.answer ? score + 1 : score;    
             }            

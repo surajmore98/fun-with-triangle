@@ -1,6 +1,5 @@
 import { calculateAreaErrorMsg, calculateAreaResultMsg } from "./data";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 
 const CalculateArea = () => {
     const [firstSideValue, setFirstSideValue] = useState(0);
