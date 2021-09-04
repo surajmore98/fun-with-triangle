@@ -20,7 +20,7 @@ function Quiz() {
         answerList.forEach(ans => {
             const data = QuizData.find(a => a.id === ans.id);
             if(data) {
-                score = ans.value == data.answer ? score + 1 : score;    
+                score = ans.value === data.answer ? score + 1 : score;    
             }            
         });
         const msg = "The score is " + score;
